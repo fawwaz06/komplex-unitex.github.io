@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komplek Unitex - Hub Warga Modern</title>
+    <!-- Tailwind CSS CDN (Versi v4) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+        }
+        /* Penambahan pola grid estetik di background agar tidak polos */
+        .bg-mesh {
+            background-color: #f6f8fc;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(243, 244, 246, 1) 0px, transparent 50%), 
+                radial-gradient(at 50% 0%, rgba(209, 250, 229, 0.3) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(254, 243, 199, 0.3) 0px, transparent 50%);
+        }
+        /* Bayangan premium yang lebih tegas dan berdimensi */
+        .premium-card {
+            background: #ffffff;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.02), 0 8px 10px -6px rgba(0, 0, 0, 0.02), inset 0px -2px 0px rgba(241, 245, 249, 1);
+        }
+        .premium-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 35px -5px rgba(15, 23, 42, 0.05), 0 10px 15px -5px rgba(15, 23, 42, 0.03);
+        }
+        /* Transisi halus global */
+        .smooth-all {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-mesh text-slate-800 antialiased min-h-screen selection:bg-emerald-600 selection:text-white">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200/80 shadow-xs">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-700 rounded-xl flex items-center justify-center text-white font-extrabold text-xl shadow-md shadow-emerald-500/20">
+                    U
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-base font-extrabold text-slate-900 tracking-tight leading-none mb-1">Komplek <span class="text-emerald-600 font-bold">Unitex</span></span>
+                    <span class="text-[10px] text-slate-400 font-semibold tracking-wide">Portal Aspirasi Warga</span>
+                </div>
+            </div>
+            <span class="text-[10px] bg-emerald-600 text-white font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-xs shadow-emerald-600/10">
+                Hub Kegiatan Warga
+            </span>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-6xl mx-auto px-6 py-10 space-y-12">
+        
+        <!-- HERO SECTION -->
+        <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 rounded-3xl p-8 md:p-12 text-white overflow-hidden shadow-xl border border-slate-700/50">
+            <div class="absolute -right-10 -top-20 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl"></div>
+            <div class="absolute -left-20 -bottom-20 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl"></div>
+            
+            <div class="relative z-10 max-w-2xl space-y-5">
+                <span class="inline-flex bg-emerald-500/20 text-emerald-300 text-[10px] font-bold px-3 py-1.5 rounded-md border border-emerald-500/30 uppercase tracking-widest">
+                    ✨ Agenda & Bazzar Resmi
+                </span>
+                <h1 class="text-3xl md:text-5xl font-black tracking-tight leading-tight bg-gradient-to-r from-white via-slate-100 to-slate-200 bg-clip-text text-transparent">
+                    Kegiatan Hari Minggu Komplek Unitex
+                </h1>
+                <p class="text-slate-300/90 text-xs md:text-sm leading-relaxed font-medium">
+                    Ruang digital kolaboratif untuk mempererat kebersamaan warga Unitex melalui koordinasi aksi gotong royong dan pemberdayaan UMKM lokal.
+                </p>
+            </div>
+        </div>
+
+        <!-- MAIN GRID LAYOUT -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            
+            <!-- LEFT COLUMN: GOTONG ROYONG -->
+            <div class="lg:col-span-2 space-y-6">
+                <div class="border-b border-slate-200 pb-3 pl-1">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2.5">
+                            <span class="w-2.5 h-5 bg-emerald-600 rounded-xs"></span>
+                            <h3 class="text-lg font-black text-slate-900 tracking-tight">Agenda Kerja Bakti & Gotong Royong</h3>
+                        </div>
+                        <span class="text-[11px] font-bold text-slate-400 bg-slate-200/60 px-2 py-0.5 rounded-md">RW Aktif</span>
+                    </div>
+                    <p class="text-slate-400 text-xs mt-1">Informasi jadwal aksi kebersihan lingkungan tingkat RW minggu ini.</p>
+                </div>
+                <!-- Container List Gotong Royong -->
+                <div id="daftar-gotong-royong" class="space-y-6"></div>
+            </div>
+
+            <!-- RIGHT COLUMN: STAND BAZZAR -->
+            <div class="space-y-6">
+                <div class="border-b border-slate-200 pb-3 pl-1">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2.5">
+                            <span class="w-2.5 h-5 bg-amber-500 rounded-xs"></span>
+                            <h3 class="text-lg font-black text-slate-900 tracking-tight">Lapak Kuliner & Bazzar</h3>
+                        </div>
+                        <span class="text-[11px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md">UMKM</span>
+                    </div>
+                    <p class="text-slate-400 text-xs mt-1">Daftar stand aktif terpusat di sepanjang area <span class="text-slate-600 font-semibold">Jl. Mawar Raya</span>.</p>
+                </div>
+                <!-- Grid Daftar Bazzar -->
+                <div id="daftar-bazzar" class="space-y-4"></div>
+            </div>
+
+        </div>
+
+        <!-- DIVIDER DEKORATIF -->
+        <div class="relative py-4">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                <div class="w-full border-t border-slate-300/70"></div>
+            </div>
+            <div class="relative flex justify-center">
+                <span class="bg-slate-100 px-4 text-xs font-bold text-slate-400 uppercase tracking-widest">Formulir Interaktif</span>
+            </div>
+        </div>
+
+        <!-- ADMINISTRATIVE CENTER (FORMS) -->
+        <div class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- FORM A: INPUT GOTONG ROYONG (TANPA PIN) -->
+                <section class="bg-white rounded-2xl border border-slate-200/80 p-6 md:p-8 space-y-6 shadow-md shadow-slate-100">
+                    <div class="border-b border-slate-100 pb-4">
+                        <span class="bg-slate-900 text-white text-[9px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider">PANEL ADMINISTRATOR</span>
+                        <h3 class="text-lg font-black text-slate-900 mt-2 tracking-tight">Rilis Agenda Gotong Royong Baru</h3>
+                        <p class="text-slate-400 text-xs mt-0.5">Form pembuatan pengumuman kerja bakti resmi tingkat RW.</p>
+                    </div>
+                    
+                    <form onsubmit="tambahGotongRoyong(event)" class="space-y-4">
+                        <div class="space-y-1">
+                            <label class="block text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">Wilayah RW</label>
+                            <input type="text" id="gr-rw" required placeholder="Contoh: RW 07" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-600 focus:bg-white transition-all shadow-2xs">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="block text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">Nama Kegiatan</label>
+                            <input type="text" id="gr-nama" required placeholder="Contoh: Pembersihan Taman & Area Selokan" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-600 focus:bg-white transition-all shadow-2xs">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="block text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">Lokasi & Estimasi Waktu</label>
+                            <input type="text" id="gr-lokasi" required placeholder="Contoh: Lapangan Serbaguna, Jam 07:30 WIB" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-600 focus:bg-white transition-all shadow-2xs">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="block text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">Instruksi Tambahan</label>
+                            <textarea id="gr-pesan" required rows="3" placeholder="Contoh: Mohon membawa cangkul, sapu lidi, atau kantong plastik sampah..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-600 focus:bg-white transition-all shadow-2xs resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-3.5 px-4 rounded-xl transition-all shadow-md cursor-pointer tracking-wide uppercase">
+                            📢 Publikasikan Kegiatan Resmi
+                        </button>
+                    </form>
+                </section>
+
+                <!-- FORM B: INPUT BAZZAR -->
+                <section class="bg-white rounded-2xl border border-slate-200/80 p-6 md:p-8 space-y-6 shadow-md shadow-slate-100">
+                    <div class="border-b border-slate-100 pb-4">
+                        <span class="bg-amber-500 text-white text-[9px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider">REGISTRASI LAPAK</span>
+                        <h3 class="text-lg font-black text-slate-900 mt-2 tracking-tight">Booking Slot Meja Bazzar</h3>
+                        <p class="text-slate-400 text-xs mt-0.5">Formulir mandiri untuk klaim nomor lapak jualan warga.</p>
+                    </div>
+                    
+                    <form onsubmit="tambahBazzar(event)" class="space-y-4">
+                        <div class="space-y-1">
+                            <label class="block text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">Nama Brand / Pemilik</label>
+                            <input type="text" id="form-nama" required placeholder="Contoh: Dapur Sehat Bu Ami" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-600 focus:bg-white transition-all shadow-2xs">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label class="block text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">Nomor Meja/Lapak</label>
+                                <input type="text" id="form-lapak" required placeholder="Contoh: Meja 12" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-600 focus:bg-white transition-all shadow-2xs">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="block text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">Kontak WhatsApp</label>
+                                <input type="number" id="form-wa" required placeholder="0857..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-600 focus:bg-white transition-all shadow-2xs">
+                            </div>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="block text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">Menu / Produk Utama</label>
+                            <textarea id="form-menu" required rows="2" placeholder="Contoh: Nasi Bakar Cakalang, Risol Mayo..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-600 focus:bg-white transition-all shadow-2xs resize-none"></textarea>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="block text-[10px] font-extrabold text-rose-600 uppercase tracking-wider">PIN Pengaman Lapak</label>
+                            <input type="password" id="form-pin" required placeholder="PIN bebas (untuk hapus)" class="w-full bg-rose-50/40 border border-rose-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-rose-500 focus:bg-white transition-all font-mono shadow-2xs">
+                        </div>
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-3.5 px-4 rounded-xl transition-all shadow-md cursor-pointer tracking-wide uppercase">
+                            🚀 Daftarkan Lapak Jualan
+                        </button>
+                    </form>
+                </section>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white text-slate-400 text-center text-xs py-8 border-t border-slate-200 mt-20 font-medium shadow-xs">
+        <p>© 2026 Pengurus Besar Komplek Unitex. Seluruh data tersimpan secara aman pada enkripsi browser.</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        const grAwal = [
+            { id: 1, rw: "RW 07", nama: "Gotong Royong Bersih-Bersih Masjid", lokasi: "Masjid Al-Ikhlas Komplek | ⏰ 07:30 WIB", pesan: "Diharapkan warga membawa peralatan masing-masing dari rumah seperti sapu lidi, kain lap, atau ember.", warga: ["Pak RT Andi", "Bu Ratna"] },
+            { id: 2, rw: "RW 03", nama: "Pembersihan Saluran Air & Selokan Guna Cegah Banjir", lokasi: "Area Jalur Utama RW 03 | ⏰ 08:00 WIB", pesan: "Fokus membersihkan sedimen lumpur dan sampah plastik. Siapkan cangkul dan sekop.", warga: ["Hendra", "Pak RW Sulaiman"] }
+        ];
+
+        const bazzarAwal = [
+            { id: 111, nama: "Kedai Sarapan Bu Ratna", lapak: "Lapak 01", wa: "628123456789", menu: "Nasi Kuning Premium, Lontong Sayur, Aneka Gorengan.", pin: "1234" },
+            { id: 222, nama: "Es Jajanan Pak Budi", lapak: "Lapak 02", wa: "628987654321", menu: "Es Kuwut Bali & Aneka Dimsum Ayam.", pin: "5678" }
+        ];
+
+        let listGR;
+        try {
+            const dataLokal = localStorage.getItem('dataGR_UnitexV4');
+            listGR = dataLokal ? JSON.parse(dataLokal) : grAwal;
+            if(!Array.isArray(listGR)) { listGR = grAwal; }
+        } catch (e) { listGR = grAwal; }
+
+        let listBazzar;
+        try {
+            const dataBazzarLokal = localStorage.getItem('dataBazzar_UnitexV4');
+            listBazzar = dataBazzarLokal ? JSON.parse(dataBazzarLokal) : bazzarAwal;
+            if(!Array.isArray(listBazzar)) { listBazzar = bazzarAwal; }
+        } catch (e) { listBazzar = bazzarAwal; }
+
+        function renderGotongRoyong() {
+            const container = document.getElementById('daftar-gotong-royong');
+            if(!container) return;
+            container.innerHTML = '';
+
+            listGR.forEach((item) => {
+                const wargaArray = Array.isArray(item.warga) ? item.warga : [];
+                let wargaBadges = '';
+                
+                if(wargaArray.length > 0) {
+                    wargaArray.forEach(nama => {
+                        wargaBadges += `<span class="inline-block bg-slate-100 text-slate-800 font-bold text-[11px] px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-3xs">${nama}</span>`;
+                    });
+                } else {
+                    wargaBadges = `<span class="text-xs text-slate-400 italic font-medium pl-1">Belum ada konfirmasi kehadiran.</span>`;
+                }
+                
+                container.innerHTML += `
+                    <div class="premium-card rounded-2xl p-6 space-y-5 smooth-all relative">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-emerald-100 text-emerald-800 border border-emerald-200 font-extrabold text-[10px] px-3 py-1 rounded-md uppercase tracking-wider">${item.rw}</span>
+                            
+                            <!-- TOMBOL LANGSUNG HAPUS TANPA PROMPT PIN -->
+                            <button onclick="hapusGotongRoyong(${item.id})" class="p-2 bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-100 rounded-xl transition-all cursor-pointer shadow-3xs text-xs" title="Hapus Agenda">
+                                🗑️ Hapus Agenda
+                            </button>
+                        </div>
+                        <div class="space-y-2">
+                            <h2 class="text-xl font-extrabold text-slate-900 tracking-tight leading-snug">${item.nama}</h2>
+                            <p class="text-emerald-700 text-xs font-bold flex items-center gap-1">
+                                📍 <span class="text-slate-500 font-semibold">${item.lokasi}</span>
+                            </p>
+                            <div class="text-slate-600 text-xs md:text-sm bg-slate-50 border border-slate-200/60 p-4 rounded-xl border-l-4 border-emerald-600 leading-relaxed font-medium shadow-2xs">
+                                <span class="font-extrabold text-slate-800 text-[10px] block uppercase tracking-wider mb-1 text-emerald-700">📢 INFO PENGURUS:</span>
+                                ${item.pesan}
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 bg-slate-50 border border-slate-200/60 rounded-xl space-y-3 shadow-2xs">
+                            <div class="flex justify-between items-center border-b border-slate-200 pb-2">
+                                <span class="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider flex items-center gap-1">📋 HADIR MINGGU INI:</span>
+                                <span class="text-[11px] font-extrabold text-emerald-800 bg-emerald-100 border border-emerald-200 px-2.5 py-0.5 rounded-md">${wargaArray.length} Orang</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 pt-0.5">${wargaBadges}</div>
+                        </div>
+
+                        <button onclick="ikutGR(${item.id})" 
+                            class="w-full font-bold py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white text-xs tracking-wider uppercase cursor-pointer shadow-md shadow-emerald-700/10 active:scale-[0.99] smooth-all">
+                            💪 Gabung Gotong Royong
+                        </button>
+                    </div>
+                `;
+            });
+        }
+
+        function renderBazzar() {
+            const container = document.getElementById('daftar-bazzar');
+            if(!container) return;
+            container.innerHTML = '';
+            
+            listBazzar.forEach((item) => {
+                container.innerHTML += `
+                    <div class="premium-card rounded-2xl p-5 flex flex-col justify-between smooth-all">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start gap-2 border-b border-slate-100 pb-2">
+                                <h4 class="font-extrabold text-slate-900 text-sm tracking-tight leading-tight">${item.nama}</h4>
+                                <span class="bg-amber-100 text-amber-900 border border-amber-200 text-[9px] font-black px-2.5 py-1 rounded-md uppercase whitespace-nowrap tracking-wide">📍 ${item.lapak}</span>
+                            </div>
+                            <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                                <span class="text-slate-400 font-bold block text-[10px] uppercase tracking-wider mb-0.5">MENU UTAMA:</span>
+                                ${item.menu}
+                            </p>
+                        </div>
+                        <div class="mt-5 grid grid-cols-6 gap-2 pt-1">
+                            <a href="https://wa.me/${item.wa}" target="_blank" class="col-span-5 inline-flex justify-center items-center bg-slate-900 hover:bg-slate-800 text-white text-[11px] font-bold py-3 px-3 rounded-xl shadow-xs tracking-wider uppercase smooth-all">
+                                💬 HUBUNGI
+                            </a>
+                            <button onclick="hapusLapak(${item.id})" class="col-span-1 bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 font-bold rounded-xl flex items-center justify-center cursor-pointer smooth-all">
+                                🗑️
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function tambahGotongRoyong(event) {
+            event.preventDefault();
+            const rw = document.getElementById('gr-rw').value;
+            const nama = document.getElementById('gr-nama').value;
+            const lokasi = document.getElementById('gr-lokasi').value;
+            const pesan = document.getElementById('gr-pesan').value;
+
+            const dataBaru = { id: Date.now(), rw: rw, nama: nama, lokasi: lokasi, pesan: pesan, warga: [] };
+            listGR.push(dataBaru);
+            localStorage.setItem('dataGR_UnitexV4', JSON.stringify(listGR));
+            renderGotongRoyong();
+            event.target.reset();
+            alert("Agenda gotong royong berhasil dipublikasikan!");
+        }
+
+        function tambahBazzar(event) {
+            event.preventDefault();
+            const namaInput = document.getElementById('form-nama').value;
+            const lapakInput = document.getElementById('form-lapak').value;
+            let waInput = document.getElementById('form-wa').value;
+            const menuInput = document.getElementById('form-menu').value;
+            const pinInput = document.getElementById('form-pin').value;
+
+            if (waInput.startsWith('0')) { waInput = '62' + waInput.slice(1); }
+
+            const dataBaru = { id: Date.now(), nama: namaInput, lapak: lapakInput, wa: waInput, menu: menuInput, pin: pinInput };
+            listBazzar.push(dataBaru);
+            localStorage.setItem('dataBazzar_UnitexV4', JSON.stringify(listBazzar));
+            renderBazzar();
+            event.target.reset();
+            alert("Lapak bazzar Anda sukses terdaftar!");
+        }
+
+        function ikutGR(id) {
+            let index = listGR.findIndex(item => item.id === id);
+            if(index !== -1) {
+                const namaWarga = prompt("Tuliskan NAMA LENGKAP Anda untuk absensi:");
+                if (!namaWarga || namaWarga.trim() === "") return;
+
+                if(!Array.isArray(listGR[index].warga)) { listGR[index].warga = []; }
+                listGR[index].warga.push(namaWarga.trim());
+                localStorage.setItem('dataGR_UnitexV4', JSON.stringify(listGR));
+                renderGotongRoyong();
+            }
+        }
+
+        // FUNGSI SEKARANG LANGSUNG MENGHAPUS TANPA STRIP DOWN KATA SANDI
+        function hapusGotongRoyong(id) {
+            let index = listGR.findIndex(item => item.id === id);
+            if (index !== -1) {
+                if (confirm(`Apakah Anda yakin ingin menghapus kegiatan "${listGR[index].nama}"?`)) {
+                    listGR.splice(index, 1);
+                    localStorage.setItem('dataGR_UnitexV4', JSON.stringify(listGR));
+                    renderGotongRoyong();
+                }
+            }
+        }
+
+        function hapusLapak(id) {
+            let index = listBazzar.findIndex(item => item.id === id);
+            if (index !== -1) {
+                const target = listBazzar[index];
+                const pin = prompt(`Masukkan PIN Keamanan Lapak "${target.nama}":`);
+                if (pin === target.pin) {
+                    listBazzar.splice(index, 1);
+                    localStorage.setItem('dataBazzar_UnitexV4', JSON.stringify(listBazzar));
+                    renderBazzar();
+                } else {
+                    alert("❌ PIN salah!");
+                }
+            }
+        }
+
+        renderGotongRoyong();
+        renderBazzar();
+    </script>
+</body>
+</html>
